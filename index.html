@@ -11,6 +11,7 @@
             height: 100%;
             width: 100%;
             overflow: hidden;
+            background-color: #ffffff;
         }
         iframe {
             position: absolute;
@@ -20,9 +21,24 @@
             height: 100%;
             border: none;
         }
+        /* 
+           The Lovable badge is typically fixed at the bottom right.
+           We'll create a small white overlay to cover that area.
+        */
+        .hide-badge {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 180px; /* Approximate width of the badge */
+            height: 50px;  /* Approximate height of the badge */
+            background-color: #ffffff; /* Match the site's background */
+            z-index: 9999;
+            pointer-events: none; /* Allow clicks to pass through if necessary, or keep as is to block clicks on the badge */
+        }
     </style>
 </head>
 <body>
     <iframe src="https://nexus-erp-software.lovable.app" allowfullscreen></iframe>
+    <div class="hide-badge"></div>
 </body>
 </html>
