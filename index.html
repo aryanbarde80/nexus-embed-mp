@@ -22,18 +22,23 @@
             border: none;
         }
         /* 
-           The Lovable badge is typically fixed at the bottom right.
-           We'll create a small white overlay to cover that area.
+           Adaptive overlay to hide the Lovable badge.
+           Uses backdrop-filter to blur and wash out the badge while 
+           remaining transparent enough to adapt to background changes.
         */
         .hide-badge {
             position: fixed;
             bottom: 0;
             right: 0;
-            width: 180px; /* Approximate width of the badge */
-            height: 50px;  /* Approximate height of the badge */
-            background-color: #ffffff; /* Match the site's background */
+            width: 180px;
+            height: 50px;
+            /* Using blur and high brightness to wash out the badge */
+            backdrop-filter: blur(10px) brightness(1.2);
+            -webkit-backdrop-filter: blur(10px) brightness(1.2);
+            /* A very subtle white tint that works well in both light and dark modes */
+            background-color: rgba(255, 255, 255, 0.05);
             z-index: 9999;
-            pointer-events: none; /* Allow clicks to pass through if necessary, or keep as is to block clicks on the badge */
+            pointer-events: none;
         }
     </style>
 </head>
